@@ -16,6 +16,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -34,15 +35,16 @@ public class SeleniumSeason1Part1Episode3Calender {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		// variable
-		
+		ChromeOptions operation = new ChromeOptions();
+		operation.addArguments("--disable-notifications");
 		System.setProperty("webdriver.chrome.driver", "C:/Users/zephyrush/SeleniumTraining/drivers/chromedriver.exe");
-		WebDriver chromeDriver = new ChromeDriver();
+		WebDriver chromeDriver = new ChromeDriver(operation);
 		chromeDriver.get("https://www.tiket.com/");
 //		chromeDriver.manage().window().maximize();
 		JavascriptExecutor jsScroll = (JavascriptExecutor) chromeDriver;
 //		jsScroll.executeScript("window.scrollBy(0,1000)");
 //		chromeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-//		WebDriverWait explicitWait = new WebDriverWait(chromeDriver, Duration.ofSeconds(15));
+		WebDriverWait explicitWait = new WebDriverWait(chromeDriver, Duration.ofSeconds(5));
 //		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='form-field-travel_comp_date']")));
 		String fromDates = "25";
 		String month = "Mei 2024";
@@ -55,7 +57,7 @@ public class SeleniumSeason1Part1Episode3Calender {
 
 				
 		for (int i=0; i <= totalMonth; i++) {
-			Thread.sleep(500);
+			explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("h2[class='Text_text__DSnue Text_variant_highEmphasis__ubq3k Text_size_b1__bsanT']")));
 			List<String> months = new ArrayList<String>();
 			months.add(chromeDriver.findElements(By.cssSelector("h2[class='Text_text__DSnue Text_variant_highEmphasis__ubq3k Text_size_b1__bsanT']")).get(0).getText());
 			months.add(chromeDriver.findElements(By.cssSelector("h2[class='Text_text__DSnue Text_variant_highEmphasis__ubq3k Text_size_b1__bsanT']")).get(1).getText());
@@ -67,7 +69,7 @@ public class SeleniumSeason1Part1Episode3Calender {
 			}
  		}
 			
-		Thread.sleep(5000);
+		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[class='Day_day__PNTH9']")));
 		List<WebElement> dates = chromeDriver.findElements(By.cssSelector("button[class='Day_day__PNTH9']"));
 		int countDates = chromeDriver.findElements(By.cssSelector("button[class='Day_day__PNTH9']")).size();
 		for(int i=0; i<countDates; i++) {
