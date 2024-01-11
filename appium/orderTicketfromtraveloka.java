@@ -27,7 +27,7 @@ public class orderTicketfromtraveloka {
 		
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android");
-		capabilities.setCapability(MobileCapabilityType.APP, "Z:/QA/appium/automation/src/main/java/resources/traveloka-3-92-0.apk");
+		capabilities.setCapability(MobileCapabilityType.APP, "");
 		
 		
 		//name='com.traveloka.android.appentry.splash.SplashActivity'
