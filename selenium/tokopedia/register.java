@@ -39,6 +39,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.asserts.SoftAssert;
 import static org.openqa.selenium.support.locators.RelativeLocator.*;
 
+
 public class register {
 	public WebDriver chromeDriver;
 	public WebDriverWait explicitWait;
@@ -53,24 +54,45 @@ public class register {
 		explicitWait = new WebDriverWait(chromeDriver, Duration.ofSeconds(10));
 		chromeDriver.get("https://www.tokopedia.com/");
 		chromeDriver.manage().window().maximize();
+		chromeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 	}	
 	
 	@Test
 	public void registerMenu() {
+		String failedFormatNotif = "Format email salah";
 		WebElement registerButton = chromeDriver.findElement(By.xpath("//div[@class='css-vlg5ix']//button[@data-testid='btnHeaderRegister']"));
 		String nameRegister = registerButton.getText();
 		System.out.println(nameRegister);
 		registerButton.click();
+		
+		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='regis-input']")));
+		WebElement inputPhone = chromeDriver.findElement(By.cssSelector("input[id='regis-input']"));
+		inputPhone.sendKeys("sukmawan");
+		
+		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@class='css-t9c9fq erj7th78']")));
+		WebElement notifFailed = chromeDriver.findElement(By.xpath("//p[@class='css-t9c9fq erj7th78']"));
+		String notifFormat = notifFailed.getText();
+		
+		System.out.println("notification Failed Text : " + notifFormat);
+		
+		SoftAssert softAssert = new SoftAssert();
+		softAssert.assertTrue(notifFormat.contains(failedFormatNotif));
+		softAssert.assertAll();
+		
 	}
+	
 	
 	@AfterTest
-	public void closeBrowser() {
-		 if (chromeDriver != null) {
-	            chromeDriver.quit();
-	        }
+	public void closeBrowser(){
+		try {
+	        Thread.sleep(4000);
+	    } catch (InterruptedException e) {
+	        e.printStackTrace(); // Or log the exception as needed
+	    }
+	    if (chromeDriver != null) {
+	        chromeDriver.quit();
+	    }
+	
+	
 	}
-	
-	
-	
-	
 }
