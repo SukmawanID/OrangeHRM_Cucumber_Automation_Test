@@ -11,8 +11,9 @@ public class HomePage {
 
 
 
-    public static void get_title_page() {
-       driver.findElement(By.xpath(title_page_xpath)).getText();
+    public static String get_title_page() {
+       String actualTitlePage = driver.findElement(By.xpath(title_page_xpath)).getText();
+        return actualTitlePage;
     }
 
 }

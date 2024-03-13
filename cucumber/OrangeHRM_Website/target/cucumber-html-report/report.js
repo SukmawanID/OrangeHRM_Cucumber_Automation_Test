@@ -7,7 +7,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 7482454700,
+  "duration": 5294708900,
   "status": "passed"
 });
 formatter.scenario({
@@ -43,25 +43,25 @@ formatter.match({
   "location": "SignInPage.user_enters_the_login_page_with_valid_credential()"
 });
 formatter.result({
-  "duration": 2261156700,
+  "duration": 2236597400,
   "status": "passed"
 });
 formatter.match({
   "location": "SignInPage.user_clicks_button_on_login_page()"
 });
 formatter.result({
-  "duration": 32608000,
+  "duration": 32728800,
   "status": "passed"
 });
 formatter.match({
   "location": "BasePage.user_navigates_to_the_Login_page_on_website()"
 });
 formatter.result({
-  "duration": 1469751700,
+  "duration": 1577734800,
   "status": "passed"
 });
 formatter.after({
-  "duration": 90555500,
+  "duration": 80096200,
   "status": "passed"
 });
 });
