@@ -1,0 +1,86 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 26566759600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.setUp()"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "Validate user is able to view after log in",
+        "description": "",
+        "id": "loggedin-user-view;validate-user-is-able-to-view-after-log-in",
+        "after": [
+          {
+            "result": {
+              "duration": 85001700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2190155400,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "User enters the login page with valid credential",
+            "match": {
+              "location": "SignInPage.user_enters_the_login_page_with_valid_credential()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 33858500,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User clicks button on login page",
+            "match": {
+              "location": "SignInPage.user_clicks_button_on_login_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2563626700,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "User successfully logged in on website",
+            "match": {
+              "location": "BasePage.user_navigates_to_the_Login_page_on_website()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 3,
+            "name": "@LoggedInUser"
+          }
+        ]
+      }
+    ],
+    "name": "LoggedIn User View",
+    "description": "",
+    "id": "loggedin-user-view",
+    "keyword": "Feature",
+    "uri": "LoggedInUser.feature"
+  }
+]
